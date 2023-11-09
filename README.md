@@ -1,7 +1,7 @@
 # Interactive WebGL + GLSL Demo, pure JavaScript, animation direction controlled by mouse clicks via manipulation of uniform variable inside shader code
 
 ## Live Preview
-Experience the demo in action here: [Interactive WebGL Live Preview]([https://droganaida.github.io/halloween_card_2023/](https://droganaida.github.io/interactive_webgl_shader_demo_circle_explosion/)).
+Experience the demo in action here: [Interactive WebGL Live Preview](https://droganaida.github.io/interactive_webgl_shader_demo_circle_explosion/).
 
 This project is an interactive demonstration created using WebGL and the GLSL (OpenGL Shading Language) shader programming language.
 The demo features particle explosion and implosion animation around a circle upon mouse click. The uniqueness of the project lies in the ability to change the animation direction through mouse clicks, allowing the user to interact with the effects in real-time.
