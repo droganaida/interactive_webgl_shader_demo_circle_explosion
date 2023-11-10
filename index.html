@@ -156,23 +156,32 @@
             canvas.width = window.innerWidth * window.devicePixelRatio;
             canvas.height = window.innerHeight * window.devicePixelRatio;
             gl.viewport(0, 0, canvas.width, canvas.height);
+            
+            restartAnimation();
         }
 
         // Animation loop
         let animationFrameId;
 
+        gl.useProgram(programMain);
+
+
         function animate() {
             let currentTime = performance.now() * 0.001;
 
-            resizeCanvas();
-
-            gl.useProgram(programMain);
             gl.uniform2f(uResolutionLocation, canvas.width, canvas.height);
             gl.uniform1f(uTimeLocation, currentTime);
 
             gl.drawArrays(gl.TRIANGLES, 0, 6);
 
             animationFrameId = requestAnimationFrame(animate);
+        }
+
+        function restartAnimation() {
+            if (animationFrameId) {
+                cancelAnimationFrame(animationFrameId);
+            }
+            animate();
         }
 
         // Set explosion strength function
@@ -236,11 +245,6 @@
                 setExplosionStrength(explosionStrength);
             }
 
-            if (animationFrameId) {
-                cancelAnimationFrame(animationFrameId);
-            }
-            animate();
-
             if (animationExplosionFrameId) {
                 cancelAnimationFrame(animationExplosionFrameId);
             }
@@ -284,7 +288,7 @@
 
         // Initial canvas resize and start animation
         resizeCanvas();
-        animate();
+
     </script>
 
 </body>
