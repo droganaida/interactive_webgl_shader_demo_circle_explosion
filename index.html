@@ -241,11 +241,13 @@
             }
             animate();
 
+            if (animationExplosionFrameId) {
+                cancelAnimationFrame(animationExplosionFrameId);
+            }
+
             // If animation is still in progress, continue the animation
             if (isAnimating) {
                 animationExplosionFrameId = requestAnimationFrame(animateExplosion);
-            } else {
-                cancelAnimationFrame(animationExplosionFrameId); 
             }
         }
 
