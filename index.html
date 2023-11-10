@@ -189,6 +189,7 @@
             return Math.sqrt(1 - Math.pow(x - 1, 2));
         }
 
+        let animationExplosionFrameId;
         let isAnimating = false;
         let direction = 1; // 1 for explosion, -1 for implosion
         let currentProgress = 0; // Current animation progress
@@ -242,7 +243,9 @@
 
             // If animation is still in progress, continue the animation
             if (isAnimating) {
-                requestAnimationFrame(animateExplosion);
+                animationExplosionFrameId = requestAnimationFrame(animateExplosion);
+            } else {
+                cancelAnimationFrame(animationExplosionFrameId); 
             }
         }
 
